@@ -51,15 +51,22 @@ const ProjectCard = () => {
             {p.description}
           </p>
           {/* THE LIVE LINK BUTTON */}
-  <a 
-    href={p.link} 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 text-[10px] font-mono text-[#00ADB5] font-black border border-[#00ADB5]/30 px-4 py-2 rounded-full hover:bg-[#00ADB5] hover:text-[#0D1117] transition-all"
-  >
-    <span>VIEW_LIVE_DEPLOYMENT</span>
-    <span className="text-lg">↗</span>
-  </a>
+            {p.link ? (
+              <a 
+                href={p.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 text-[10px] font-mono text-[#00ADB5] font-black border border-[#00ADB5]/30 px-4 py-2 rounded-full hover:bg-[#00ADB5] hover:text-[#0D1117] transition-all w-fit"
+              >
+                <span>VIEW_LIVE_DEPLOYMENT</span>
+                <span className="text-lg">↗</span>
+              </a>
+            ) : (
+              /* OPTIONAL: Show a "Private System" badge for projects without links */
+              <div className="text-[9px] font-mono text-[#8b949e]/50 italic">
+                [ SECURE_INTERNAL_SYSTEM ]
+              </div>
+            )}
 
           <div className="flex items-center gap-2 text-[10px] font-mono text-[#00ADB5] font-bold opacity-0 group-hover:opacity-100 transition-opacity">
             <span>VIEW_SOURCE</span>
