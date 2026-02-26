@@ -20,7 +20,7 @@ const ProjectCard = () => {
     {
       title: "CineTrack: Movie Discovery",
       tags: ["React", "TMDB API", "Axios"],
-      description: "A high-performance movie database app featuring real-time search, trending filters, and dynamic detail pages using RESTful APIs."
+      description: "A high-performance movie database app featuring real-time search, trending filters, and dynamic detail pages using RESTful APIs.website:https://instant-movie-update.vercel.app"
     }
   ];
 
