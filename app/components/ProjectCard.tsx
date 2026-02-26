@@ -20,7 +20,8 @@ const ProjectCard = () => {
     {
       title: "CineTrack: Movie Discovery",
       tags: ["React", "TMDB API", "Axios"],
-      description: "A high-performance movie database app featuring real-time search, trending filters, and dynamic detail pages using RESTful APIs."
+      description: "A high-performance movie database app featuring real-time search, trending filters, and dynamic detail pages using RESTful APIs.",
+      link:movie-uptodate.vercel.app
     }
   ];
 
@@ -49,6 +50,16 @@ const ProjectCard = () => {
           <p className="text-[#8b949e] text-sm leading-relaxed mb-6">
             {p.description}
           </p>
+          {/* THE LIVE LINK BUTTON */}
+  <a 
+    href={p.link} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 text-[10px] font-mono text-[#00ADB5] font-black border border-[#00ADB5]/30 px-4 py-2 rounded-full hover:bg-[#00ADB5] hover:text-[#0D1117] transition-all"
+  >
+    <span>VIEW_LIVE_DEPLOYMENT</span>
+    <span className="text-lg">↗</span>
+  </a>
 
           <div className="flex items-center gap-2 text-[10px] font-mono text-[#00ADB5] font-bold opacity-0 group-hover:opacity-100 transition-opacity">
             <span>VIEW_SOURCE</span>
