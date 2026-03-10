@@ -20,8 +20,12 @@ const ProjectCard = () => {
     {
       title: "CineTrack: Movie Discovery",
       tags: ["React", "TMDB API", "Axios"],
-      description: "A high-performance movie database app featuring real-time search, trending filters, and dynamic detail pages using RESTful APIs.",
-      link: "https://instant-movie-update.vercel.app"
+      description: "A high-performance movie database app featuring real-time search, trending filters, and dynamic detail pages using RESTful APIs."
+    },
+    {
+      title: "TNTJ Perambalur Blood Network",
+      tags: ["React (Vite), Node.js, MongoDB, Tailwind CSS, REST API, Google OAuth"],
+      description: "A localized medical utility app for Perambalur district. Features include a searchable village database, donor leaderboards, and a dual-theme Tamil UI optimized for mobile speed."
     }
   ];
 
@@ -50,23 +54,6 @@ const ProjectCard = () => {
           <p className="text-[#8b949e] text-sm leading-relaxed mb-6">
             {p.description}
           </p>
-          {/* THE LIVE LINK BUTTON */}
-            {p.link ? (
-              <a 
-                href={p.link} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 text-[10px] font-mono text-[#00ADB5] font-black border border-[#00ADB5]/30 px-4 py-2 rounded-full hover:bg-[#00ADB5] hover:text-[#0D1117] transition-all w-fit"
-              >
-                <span>VIEW_LIVE_DEPLOYMENT</span>
-                <span className="text-lg">↗</span>
-              </a>
-            ) : (
-              /* OPTIONAL: Show a "Private System" badge for projects without links */
-              <div className="text-[9px] font-mono text-[#8b949e]/50 italic">
-                [ SECURE_INTERNAL_SYSTEM ]
-              </div>
-            )}
 
           <div className="flex items-center gap-2 text-[10px] font-mono text-[#00ADB5] font-bold opacity-0 group-hover:opacity-100 transition-opacity">
             <span>VIEW_SOURCE</span>
