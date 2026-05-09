@@ -30,7 +30,7 @@ export default function Hero() {
              </h1>
 
              <p className="text-[#8b949e] text-sm md:text-base max-w-2xl font-medium leading-relaxed text-justify md:text-left">
-               Frontend Developer with 2+ years of hands-on experience in designing, developing, and maintaining
+               Full Stack Developer with 2+ years of hands-on experience in designing, developing, and maintaining
                responsive web applications using <span className="text-[#E6EDF3]">React.js, JavaScript (ES6+), and Next.js</span>. 
                Expert in building admin dashboards, REST API integration, and reusable components. 
                Strong focus on state management and performance optimization. 
