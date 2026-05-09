@@ -1,0 +1,89 @@
+import React from 'react';
+
+const ProjectCard = () => {
+  const projects = [
+    {
+      title: "CineTrack: Movie Discovery",
+      tags: ["React", "TMDB API", "Axios"],
+      description: "A high-performance movie database app featuring real-time search, trending filters, and dynamic detail pages using RESTful APIs.",
+      link: "https://instant-movie-update.vercel.app/"
+    },
+    {
+      title: "TNTJ Perambalur Blood Network",
+      tags: ["React (Vite)", "Node.js", "MongoDB", "Tailwind CSS", "REST API", "Google OAuth"],
+      description: "A localized medical utility app for Perambalur district. Features include a searchable village database, donor leaderboards, and a dual-theme Tamil UI optimized for mobile speed.",
+      link: "https://blood-design.vercel.app/"
+    },
+{
+  title: "AL FATTAH Muslim Matrimony",
+  tags: [
+    "Express.js",
+    "Node.js",
+    "MongoDB",
+    "JWT Auth",
+    "Tailwind CSS",
+    "REST API",
+    "Brevo SMTP"
+  ],
+  description:
+    "A full-stack Muslim matrimony platform featuring secure JWT authentication, OTP email verification, advanced profile management, protected admin dashboard, and responsive modern UI deployed with Vercel and Render.",
+  link: "https://alfattahnikkah.com/"
+},
+    {
+      title: "Thaj Anwar E-Commerce",
+      tags: ["React", "REST API", "Tailwind"],
+      description: "Full-scale store with product filtering and admin dashboard integration."
+    },
+    {
+      title: "Weather Forecast System",
+      tags: ["JavaScript", "API Integration"],
+      description: "Real-time weather tracking application utilizing external data streams."
+    },
+    {
+      title: "Visitor Management",
+      tags: ["React", "Logic", "OTP"],
+      description: "Secure apartment management system with OTP verification and alerts."
+    },
+  ];
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {projects.map((p, i) => {
+        const CardWrapper = p.link ? "a" as any : "div";
+        return (
+          <CardWrapper
+            key={i}
+            {...(p.link ? { href: p.link, target: "_blank", rel: "noopener noreferrer" } : {})}
+            className={`bg-[#161B22] border border-[#30363d] p-8 rounded-[2rem] hover:border-[#00ADB5] transition-all group relative overflow-hidden ${p.link ? "block cursor-pointer" : ""}`}
+          >
+            {/* Decorative Corner */}
+            <div className="absolute top-0 right-0 w-12 h-12 bg-[#00ADB5]/5 rounded-bl-full translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all"></div>
+
+            <div className="flex flex-wrap gap-2 mb-6">
+              {p.tags.map(tag => (
+                <span key={tag} className="text-[9px] font-mono text-[#3B82F6] border border-[#3B82F6]/30 px-2 py-1 rounded">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <h3 className="text-xl font-bold text-[#E6EDF3] mb-4 group-hover:text-[#00ADB5] transition-colors">
+              {p.title}
+            </h3>
+
+            <p className="text-[#8b949e] text-sm leading-relaxed mb-6">
+              {p.description}
+            </p>
+
+            <div className="flex items-center gap-2 text-[10px] font-mono text-[#00ADB5] font-bold opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
+              <span>{p.link ? "VIEW_PROJECT" : "VIEW_SOURCE"}</span>
+              <span>→</span>
+            </div>
+          </CardWrapper>
+        );
+      })}
+    </div>
+  );
+};
+
+export default ProjectCard;
