@@ -651,55 +651,6 @@ export default function CinematicHero() {
           className="fixed inset-0 bg-black/75 backdrop-blur-sm z-[150] transition-opacity duration-500"
         />
       )}
-
-      {/* ── Skills Grid Section ── */}
-      <section className="relative z-[50] bg-[#050810] py-24 px-6 border-t border-[#30363d]/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-[#00ADB5] font-mono text-sm font-bold tracking-[0.4em] mb-4">// TECHNICAL_CAPABILITIES</h2>
-            <h3 className="text-4xl md:text-6xl font-black text-[#E6EDF3] tracking-tighter">
-              FULL_STACK <br/> <span className="text-[#00ADB5]">SPECIALIZATION_</span>
-            </h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skillCategories.map((cat, i) => (
-              <div 
-                key={i} 
-                className="group relative bg-[#161B22]/50 backdrop-blur-sm border border-[#30363d] hover:border-[#00ADB5]/50 p-8 rounded-[2.5rem] transition-all duration-500 hover:translate-y-[-8px] hover:shadow-[0_20px_50px_rgba(0,173,181,0.1)] overflow-hidden"
-              >
-                <div className="absolute -right-8 -top-8 w-32 h-32 bg-[#00ADB5]/5 rounded-full blur-3xl group-hover:bg-[#00ADB5]/15 transition-all duration-700" />
-                <div className="relative z-10">
-                  <div className="flex justify-between items-center mb-8">
-                    <div className="w-12 h-12 rounded-2xl bg-[#0D1117] border border-[#30363d] flex items-center justify-center font-mono text-[#00ADB5] font-bold group-hover:scale-110 transition-transform duration-500">
-                      0{i + 1}
-                    </div>
-                    <span className="text-[10px] font-mono text-[#8b949e] tracking-widest uppercase opacity-40 group-hover:opacity-100 transition-opacity">
-                      Module.{cat.title.replace(/\s+/g, '_')}
-                    </span>
-                  </div>
-                  <h4 className="text-[#E6EDF3] font-black text-2xl mb-6 tracking-tight group-hover:text-[#00ADB5] transition-colors">
-                    {cat.title}
-                  </h4>
-                  <div className="flex flex-wrap gap-2.5">
-                    {cat.skills.map(skill => (
-                      <span 
-                        key={skill} 
-                        className="px-4 py-2 bg-[#0D1117]/80 border border-[#30363d] text-[#8b949e] rounded-xl text-xs font-mono hover:border-[#00ADB5] hover:text-[#00ADB5] hover:bg-[#00ADB5]/5 transition-all duration-300"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-1000 ease-in-out" />
-              </div>
-            ))}
-          </div>
-          <div className="mt-20 flex justify-center">
-            <div className="p-1 rounded-full bg-gradient-to-r from-transparent via-[#30363d] to-transparent w-full max-w-2xl opacity-30" />
-          </div>
-        </div>
-      </section>
     </>
   );
 }
