@@ -22,6 +22,15 @@ export default function CinematicHero() {
 
   const [mounted, setMounted] = useState(false);
   const [activeIdx, setActiveIdx] = useState(1);   // center image highlighted
+  const [isSkillsOpen, setIsSkillsOpen] = useState(false);
+
+  const skillCategories = [
+    { title: "Frontend", skills: ["React.js", "Next.js", "JavaScript (ES6+)", "TypeScript", "HTML5/CSS3"] },
+    { title: "Styling & UI", skills: ["Tailwind CSS", "Bootstrap", "Responsive Design", "Figma to Code"] },
+    { title: "State & Data", skills: ["Redux Toolkit", "Context API", "REST APIs", "Axios"] },
+    { title: "Tools", skills: ["Git / GitHub", "NPM / Yarn", "Vite", "Firebase"] },
+    { title: "IT Support", skills: ["Troubleshooting", "Network Management", "Hardware Setup", "User Support"] }
+  ];
 
   // ── cursor ──────────────────────────────────────────
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -185,6 +194,8 @@ export default function CinematicHero() {
       cleanup?.();
     };
   }, [onMouseMove, animLoop, animCursor, initParticles]);
+
+  if (!mounted) return null;
 
   return (
     <>
@@ -379,66 +390,74 @@ export default function CinematicHero() {
           </div>
 
           <p style={{
-            fontSize:12, fontWeight:400, color:"rgba(230,237,243,0.52)",
-            lineHeight:1.75, letterSpacing:"0.04em", maxWidth:255,
-            opacity:0, animation:"fadeUpIn 0.8s ease forwards 0.85s",
+            fontSize: 12, fontWeight: 400, color: "rgba(230,237,243,0.55)",
+            lineHeight: 1.8, letterSpacing: "0.05em", maxWidth: 280,
+            opacity: 0, animation: "fadeUpIn 0.8s ease forwards 0.85s",
+            marginTop: 20
           }}>
-            React · Next.js · TypeScript<br/>
-            2+ years building high-performance<br/>web applications in Dubai.
+            Full Stack Developer with 2+ years of experience building high-performance web applications in Dubai.
+            Expert in React.js, Next.js, and modern UI design.
           </p>
 
           <div style={{
-            marginTop:28, display:"flex", gap:12, flexWrap:"wrap",
-            opacity:0, animation:"fadeUpIn 0.8s ease forwards 1.05s",
-            pointerEvents:"all",
+            marginTop: 28, display: "flex", gap: 12, flexWrap: "wrap",
+            opacity: 0, animation: "fadeUpIn 0.8s ease forwards 1.05s",
+            pointerEvents: "all",
           }}>
+            <button
+              onClick={() => setIsSkillsOpen(true)}
+              style={{
+                padding: "11px 22px",
+                background: "linear-gradient(135deg, #00ADB5 0%, #007A80 100%)",
+                color: "#0D1117",
+                fontSize: 9, fontWeight: 900,
+                fontFamily: "'Space Mono', monospace",
+                letterSpacing: "0.18em", textTransform: "uppercase",
+                border: "none", borderRadius: 4,
+                cursor: "pointer", display: "inline-flex",
+                alignItems: "center", gap: 8,
+                transition: "all 0.3s",
+                boxShadow: "0 0 15px rgba(0,173,181,0.2)",
+                position: "relative",
+                overflow: "hidden"
+              }}
+              onMouseEnter={e => {
+                const el = e.currentTarget as HTMLButtonElement;
+                el.style.boxShadow = "0 0 25px rgba(0,173,181,0.5)";
+                el.style.transform = "scale(1.05)";
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget as HTMLButtonElement;
+                el.style.boxShadow = "0 0 15px rgba(0,173,181,0.2)";
+                el.style.transform = "scale(1)";
+              }}
+            >
+              <span style={{ position: "relative", zIndex: 2 }}>Skill Matrix_</span>
+              <div className="absolute inset-0 bg-white/20 -translate-x-full animate-[shimmer_3s_infinite]" />
+            </button>
             <a
               href="https://wa.me/971503549798"
               style={{
-                padding:"11px 22px",
-                background:"#00ADB5", color:"#050810",
-                fontSize:9, fontWeight:900,
-                fontFamily:"'Space Mono', monospace",
-                letterSpacing:"0.18em", textTransform:"uppercase",
-                border:"none", borderRadius:4,
-                textDecoration:"none", display:"inline-flex",
-                alignItems:"center", gap:6,
-                transition:"all 0.3s",
-                boxShadow:"0 0 0 rgba(0,173,181,0)",
+                padding: "11px 22px",
+                background: "transparent", color: "#E6EDF3",
+                fontSize: 9, fontWeight: 700,
+                fontFamily: "'Space Mono', monospace",
+                letterSpacing: "0.18em", textTransform: "uppercase",
+                border: "1px solid rgba(0,173,181,0.3)", borderRadius: 4,
+                textDecoration: "none", display: "inline-flex",
+                alignItems: "center", gap: 6,
+                transition: "all 0.3s",
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 22px rgba(0,173,181,0.38)";
-                (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.04)";
+                const el = e.currentTarget as HTMLAnchorElement;
+                el.style.borderColor = "#00ADB5"; el.style.background = "rgba(0,173,181,0.1)";
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 0 rgba(0,173,181,0)";
-                (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)";
+                const el = e.currentTarget as HTMLAnchorElement;
+                el.style.borderColor = "rgba(0,173,181,0.3)"; el.style.background = "transparent";
               }}
             >
               WhatsApp →
-            </a>
-            <a
-              href="mailto:kmyjob46@gmail.com"
-              style={{
-                padding:"11px 22px",
-                background:"transparent", color:"rgba(230,237,243,0.65)",
-                fontSize:9, fontWeight:700,
-                fontFamily:"'Space Mono', monospace",
-                letterSpacing:"0.18em", textTransform:"uppercase",
-                border:"1px solid rgba(255,255,255,0.14)", borderRadius:4,
-                textDecoration:"none", display:"inline-block",
-                transition:"all 0.3s",
-              }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.borderColor = "#00ADB5"; el.style.color = "#00ADB5";
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.borderColor = "rgba(255,255,255,0.14)"; el.style.color = "rgba(230,237,243,0.65)";
-              }}
-            >
-              Send Email ✉
             </a>
           </div>
         </div>
@@ -568,8 +587,118 @@ export default function CinematicHero() {
             0%,100% { opacity:0.4; transform:scaleY(1); }
             50%      { opacity:1; transform:scaleY(1.12); }
           }
+          @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+          }
+          @keyframes scan {
+            0% { transform: translateY(-100%); }
+            50% { transform: translateY(100%); }
+            100% { transform: translateY(100%); }
+          }
           section[data-hero] * { box-sizing:border-box; }
         `}</style>
+      </section>
+
+      {/* ── Drawer ── */}
+      <div className={`fixed inset-y-0 right-0 z-[200] w-full md:w-[480px] bg-[#0D1117]/95 backdrop-blur-xl border-l border-[#30363d] shadow-2xl transition-transform duration-500 ease-in-out ${isSkillsOpen ? "translate-x-0" : "translate-x-full"}`}>
+        <div className="absolute inset-0 opacity-25 pointer-events-none overflow-hidden">
+          <div className="absolute -top-[20%] -right-[20%] w-[350px] h-[350px] rounded-full bg-[#00ADB5] blur-[120px] animate-pulse" />
+          <div className="absolute -bottom-[10%] -left-[10%] w-[250px] h-[250px] rounded-full bg-[#ff6b00] blur-[100px] animate-pulse" />
+        </div>
+        <div className="relative p-8 md:p-12 h-full overflow-y-auto flex flex-col justify-between z-10">
+          <div>
+            <div className="flex justify-between items-center mb-12">
+              <h2 className="text-[#00ADB5] font-mono text-xs font-bold tracking-[0.3em]">// SKILL_MATRIX_V1</h2>
+              <button 
+                onClick={() => setIsSkillsOpen(false)}
+                className="bg-[#161B22] border border-[#30363d] px-4 py-2 rounded-xl text-[#8b949e] hover:text-white hover:border-white/40 font-mono text-xs transition-all active:scale-95 shadow-md"
+              >
+                CLOSE [X]
+              </button>
+            </div>
+            <div className="space-y-10">
+              {skillCategories.map((cat, i) => (
+                <div key={i} className="border-b border-[#30363d]/40 pb-6 last:border-0">
+                  <h4 className="text-[#E6EDF3] font-black text-lg mb-4 flex items-center gap-3">
+                    <span className="text-[#00ADB5] font-mono text-sm">0{i+1}.</span> {cat.title}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {cat.skills.map(skill => (
+                      <span key={skill} className="px-3.5 py-2 bg-[#161B22]/90 border border-[#30363d] text-[#8b949e] rounded-xl text-xs font-mono hover:border-[#00ADB5] hover:text-[#00ADB5] hover:bg-[#0D1117] transition-all cursor-default shadow-sm">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-12 p-6 bg-gradient-to-br from-[#161B22] to-[#0D1117] border border-[#30363d] rounded-3xl relative overflow-hidden shadow-inner">
+             <div className="absolute top-0 right-0 w-24 h-24 bg-[#00ADB5]/5 rounded-full blur-xl pointer-events-none" />
+             <p className="text-[10px] text-[#00ADB5] font-mono mb-3 uppercase tracking-widest">// Recruitment_Quick_Action</p>
+             <a href="https://wa.me/971503549798" className="block text-center py-4 bg-[#00ADB5] text-[#0D1117] font-black rounded-2xl text-sm tracking-wide hover:bg-[#00c2cb] active:scale-[0.98] transition-all shadow-lg shadow-[#00ADB5]/10">
+               WHATSAPP NOW
+             </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Overlay */}
+      {isSkillsOpen && (
+        <div 
+          onClick={() => setIsSkillsOpen(false)}
+          className="fixed inset-0 bg-black/75 backdrop-blur-sm z-[150] transition-opacity duration-500"
+        />
+      )}
+
+      {/* ── Skills Grid Section ── */}
+      <section className="relative z-[50] bg-[#050810] py-24 px-6 border-t border-[#30363d]/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16">
+            <h2 className="text-[#00ADB5] font-mono text-sm font-bold tracking-[0.4em] mb-4">// TECHNICAL_CAPABILITIES</h2>
+            <h3 className="text-4xl md:text-6xl font-black text-[#E6EDF3] tracking-tighter">
+              FULL_STACK <br/> <span className="text-[#00ADB5]">SPECIALIZATION_</span>
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skillCategories.map((cat, i) => (
+              <div 
+                key={i} 
+                className="group relative bg-[#161B22]/50 backdrop-blur-sm border border-[#30363d] hover:border-[#00ADB5]/50 p-8 rounded-[2.5rem] transition-all duration-500 hover:translate-y-[-8px] hover:shadow-[0_20px_50px_rgba(0,173,181,0.1)] overflow-hidden"
+              >
+                <div className="absolute -right-8 -top-8 w-32 h-32 bg-[#00ADB5]/5 rounded-full blur-3xl group-hover:bg-[#00ADB5]/15 transition-all duration-700" />
+                <div className="relative z-10">
+                  <div className="flex justify-between items-center mb-8">
+                    <div className="w-12 h-12 rounded-2xl bg-[#0D1117] border border-[#30363d] flex items-center justify-center font-mono text-[#00ADB5] font-bold group-hover:scale-110 transition-transform duration-500">
+                      0{i + 1}
+                    </div>
+                    <span className="text-[10px] font-mono text-[#8b949e] tracking-widest uppercase opacity-40 group-hover:opacity-100 transition-opacity">
+                      Module.{cat.title.replace(/\s+/g, '_')}
+                    </span>
+                  </div>
+                  <h4 className="text-[#E6EDF3] font-black text-2xl mb-6 tracking-tight group-hover:text-[#00ADB5] transition-colors">
+                    {cat.title}
+                  </h4>
+                  <div className="flex flex-wrap gap-2.5">
+                    {cat.skills.map(skill => (
+                      <span 
+                        key={skill} 
+                        className="px-4 py-2 bg-[#0D1117]/80 border border-[#30363d] text-[#8b949e] rounded-xl text-xs font-mono hover:border-[#00ADB5] hover:text-[#00ADB5] hover:bg-[#00ADB5]/5 transition-all duration-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#00ADB5] to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:translate-x-full transition-all duration-1000 ease-in-out" />
+              </div>
+            ))}
+          </div>
+          <div className="mt-20 flex justify-center">
+            <div className="p-1 rounded-full bg-gradient-to-r from-transparent via-[#30363d] to-transparent w-full max-w-2xl opacity-30" />
+          </div>
+        </div>
       </section>
     </>
   );
